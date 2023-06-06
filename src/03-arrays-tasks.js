@@ -36,8 +36,9 @@ function findElement(arr, value) {
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(/* len */) {
-  throw new Error('Not implemented');
+function generateOdds(len) {
+  return Array.from({ length: len }, (el, i) => 2 * i + 1);
+  // throw new Error('Not implemented');
 }
 
 
@@ -53,11 +54,9 @@ function generateOdds(/* len */) {
  *    [0, 1, 2, 3, 4, 5] => [0, 1, 2, 3, 4, 5,   0, 1, 2, 3, 4, 5]
  *    [] => []
  */
-function doubleArray(/* arr */) {
-  // const str = arr.join();
-  // const str1 = `${str},   ${str}`;
-  // return str1.split();
-  throw new Error('Not implemented');
+function doubleArray(arr) {
+  return arr.concat(arr);
+  // throw new Error('Not implemented');
 }
 
 
@@ -322,8 +321,16 @@ function get3TopItems(/* arr */) {
  *   [ null, 1, 'elephant' ] => 1
  *   [ 1, '2' ] => 1
  */
-function getPositivesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getPositivesCount(arr) {
+  const arr1 = [];
+  arr.map((el) => {
+    if (el > 0 && typeof (el) === 'number') {
+      arr1.push(el);
+    }
+    return el;
+  });
+  return arr1.length;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -355,8 +362,13 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   [ -1, 1, -1, 1 ]      => 0
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
-function getItemsSum(/* arr */) {
-  throw new Error('Not implemented');
+function getItemsSum(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  return arr.reduce((a, b) => a + b);
+
+  // throw new Error('Not implemented');
 }
 
 /**
