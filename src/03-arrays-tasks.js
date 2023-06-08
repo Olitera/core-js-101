@@ -217,8 +217,9 @@ function getTail(arr, n) {
  *    +'20,21,22,23,24\n'
  *    +'30,31,32,33,34'
  */
-function toCsvText(/* arr */) {
-  throw new Error('Not implemented');
+function toCsvText(arr) {
+  return `${(arr.map((el) => `${String(el)}\n`)).join('').slice(0, -1)}`;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -252,9 +253,14 @@ function toArrayOfSquares(arr) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(/* arr */) {
-  // return arr.reduce((a, b) => { return a + b; }, []);
-  throw new Error('Not implemented');
+function getMovingSum(arr) {
+  const array = [arr[0]];
+  arr.reduce((a, b) => {
+    array.push(a + b);
+    return a + b;
+  });
+  return array;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -288,9 +294,9 @@ function getSecondItems(arr) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  // return arr.map((el, i) => arr.copyWithin(i + 1, i, i + 1));
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  return arr.reduce((a, b, index) => a.concat(Array.from({ length: index + 1 }, () => b)), []);
+  // throw new Error('Not implemented');
 }
 
 
@@ -351,8 +357,10 @@ function getPositivesCount(arr) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const arr1 = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  return arr.sort((a, b) => arr1.indexOf(a) - arr1.indexOf(b));
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -406,8 +414,9 @@ function getFalsyValuesCount(arr) {
  *    [ null, undefined, null ], null => 2
  *    [ true, 0, 1, 'true' ], true => 1
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(arr, item) {
+  return arr.filter((el) => el === item).length;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -421,8 +430,9 @@ function findAllOccurrences(/* arr, item */) {
  *    [1, 2, 3, 4, 5]                   => '1,2,3,4,5'
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
-function toStringList(/* arr */) {
-  throw new Error('Not implemented');
+function toStringList(arr) {
+  return arr.join();
+  // throw new Error('Not implemented');
 }
 
 
