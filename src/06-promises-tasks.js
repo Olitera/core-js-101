@@ -109,7 +109,7 @@ function chainPromises(array, action) {
     const ra = await a;
     const rb = await b;
     return action(ra, rb);
-  }).catch((err) => err);
+  }).catch((err) => new Error(err));
   // throw new Error('Not implemented');
 }
 
